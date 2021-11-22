@@ -1,0 +1,39 @@
+Alumno: Jose Edgardo Delgado Arevalo<br><br>
+<script>
+    const inicio = ["unacadena",3,9,1,10,500,1,10,true];
+    //const inicio = [true,2,3,1,0.55,"jose",2.2];
+    const arrayNumerico=new Array();
+    const arrayNumericoOrdenado=new Array();
+    let temporal =0;
+
+    console.log("******Arreglo inicial:");
+    console.log(inicio);
+
+    console.log("");
+    console.log("");
+    console.log("******Arreglo numerico:");
+    let c=0;
+    for(i=0;i<inicio.length;i++){
+        if(typeof inicio[i] === 'number'){
+            arrayNumerico[c]=inicio[i];
+            c++;
+        }
+    }
+    console.log(arrayNumerico);
+    
+    console.log("");
+    console.log("");
+    console.log("******Arreglo numerico ordenado:");
+    for (i = 0; i < arrayNumerico.length; i++) {
+        for (j = 1; j < (arrayNumerico.length - i); j++) {
+            if (arrayNumerico[j - 1] > arrayNumerico[j]) {
+                temporal = arrayNumerico[j - 1];
+                arrayNumerico[j - 1] = arrayNumerico[j];
+                arrayNumerico[j] = temporal;
+            }
+        }
+    }
+    
+    console.log(arrayNumerico);
+    
+</script>

@@ -1,0 +1,22 @@
+Alumno: Jose Edgardo Delgado Arevalo<br><br>
+<script>
+    let numeroDeElementos = 7;
+    
+    let a=0;
+    let b=1;
+    const arrayResultado=new Array();
+    let contador=0;
+    for(i=0;i<numeroDeElementos;i++){
+        let temporal=a;
+
+        document.writeln(a+",");
+        arrayResultado[contador]=a;
+        
+
+        a=b;
+        b=temporal+b;
+        contador++;
+       
+    }
+    console.log(arrayResultado);
+</script>
