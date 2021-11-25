@@ -1,0 +1,112 @@
+<script>
+    class Persona{
+        nombre="";
+        edad=0;
+
+        obtDetalles(){
+            console.log("Nombre: "+this.nombre);
+            console.log("Edad: "+this.edad);
+        }
+
+        constructor(nombre,edad){
+            this.nombre=nombre;
+            this.edad=edad;
+        }
+    }
+
+    class Estudiante extends Persona{
+        calificacion=0;
+
+        obtDetalles(){
+            super.obtDetalles();
+            console.log("Calificacion: "+this.calificacion);
+        }
+
+        constructor(nombre,edad,calificacion){
+           super(nombre,edad);
+           this.calificacion=calificacion;
+        }
+
+    }
+
+    class Profesor extends Persona{
+        asignatura="";
+        nivel="";
+
+        obtDetalles(){
+            super.obtDetalles();
+            console.log("Asignatura: "+this.asignatura);
+            console.log("Nivel: "+this.nivel);
+        }
+
+        constructor(nombre,edad,asignatura="JS",nivel="Basico"){
+            super(nombre,edad);
+            this.asignatura=asignatura;
+            this.nivel=nivel;
+        }
+    }
+
+    class Grupo{
+        profesor;
+        promedio=0;
+        estudiantes;
+
+        calificar(){
+            for(var i=0;i<this.estudiantes.length;i++){
+                this.estudiantes[i].calificacion= (Math.random() * 10);
+            }
+        }
+
+        calcularPromedio(){
+            let t=0;
+            for(var i=0;i<this.estudiantes.length;i++){
+                t=t+this.estudiantes[i].calificacion;
+            }
+
+            this.promedio=t/this.estudiantes.length;
+        }
+
+        obtdetalles(){
+            
+            this.profesor.obtDetalles();
+            console.log("Detalle estudiantes:");
+            for(var i=0;i<this.estudiantes.length;i++){
+                console.log("Nombre estudiante " +(i+1) +": "+this.estudiantes[i].nombre);
+                console.log("Edad estudiante " +(i+1) +": "+this.estudiantes[i].edad);
+                console.log("Calificacion estudiante " +(i+1) +": "+this.estudiantes[i].calificacion);
+            }
+
+        }
+
+        constructor(profesor,estudiantes){
+            this.profesor=profesor;
+            this.estudiantes=estudiantes;
+        }
+    }
+
+  new Persona("Edgardo",30).obtDetalles();
+  console.log("");
+  new Estudiante("Edgardo1",20,10).obtDetalles(); 
+  console.log("");
+  new Profesor("Edgardo1",20).obtDetalles();  
+  console.log("");
+
+
+  let estudiante1=new Estudiante("Edgardo1",20,10);
+  let estudiante2=new Estudiante("Edgardo2",21,9);
+  let estudiante3=new Estudiante("Edgardo3",22,8);
+  let estudiante4=new Estudiante("Edgardo4",23,7);
+  let estudiante5=new Estudiante("Edgardo5",24,6);
+  let estudiante6=new Estudiante("Edgardo6",25,5);
+
+
+  let arrayEstudiantes=new Array(estudiante1,estudiante2,estudiante3,estudiante4,estudiante5,estudiante6);
+
+
+  let grupo1=new Grupo(new Profesor("Jose Edgardo",29),arrayEstudiantes);
+  grupo1.calificar();
+  grupo1.calcularPromedio();
+  grupo1.obtdetalles();
+
+  
+</script>

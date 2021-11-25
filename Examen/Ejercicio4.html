@@ -1,0 +1,10 @@
+<script>
+    function palindrome(str) {
+        const strReversed = str.split("").reverse().join("");
+
+    return strReversed.toUpperCase()  === str.toUpperCase()  ? "es palindromo" : "no es palindromo"
+}
+console.log(palindrome("oso")) // es palindromo
+console.log(palindrome("hola")) // no es palindromo
+console.log(palindrome("Omo")) // es palindromo
+</script>
